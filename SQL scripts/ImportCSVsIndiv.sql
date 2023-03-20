@@ -1,0 +1,21 @@
+USE IHM_individual;
+
+LOAD DATA INFILE "./csv/customers.csv" INTO TABLE customers
+  FIELDS TERMINATED BY ","
+  LINES TERMINATED BY "\r\n"
+  IGNORE 1 ROWS;
+
+ LOAD DATA INFILE "./csv/products.csv" INTO TABLE products
+  FIELDS TERMINATED BY ","
+  LINES TERMINATED BY "\r\n"
+  IGNORE 1 ROWS;
+ 
+LOAD DATA INFILE "./csv/orders.csv" INTO TABLE orders
+  FIELDS TERMINATED BY ","
+  LINES TERMINATED BY "\r\n"
+  IGNORE 1 ROWS;
+ 
+ LOAD DATA INFILE "./csv/orderRows.csv" INTO TABLE orderRows
+  FIELDS TERMINATED BY ","
+  LINES TERMINATED BY "\r\n"
+  IGNORE 1 ROWS;
