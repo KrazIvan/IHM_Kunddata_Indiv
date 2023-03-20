@@ -1,8 +1,10 @@
 import requests
 
-def få_hubspot_kunder(kundidn=None, num_customers=10, hubspot_api_key="pat-na1-003cd583-9877-4c70-97ba-4c8cb7b980e0"):
+def få_hubspot_kunder(kundidn=None,
+                      antal_kunder=10,
+                      hubspot_api_key="pat-na1-003cd583-9877-4c70-97ba-4c8cb7b980e0"):
     headers = {"Authorization": "Bearer " + hubspot_api_key}
-    params = {"limit": num_customers}
+    params = {"limit": antal_kunder}
     # För specifika kunder
     if kundidn != None:
         kundlista = []
@@ -29,7 +31,8 @@ def få_hubspot_kunder(kundidn=None, num_customers=10, hubspot_api_key="pat-na1-
             return []
 
 
-def få_status_newsletters(api_nyckeln="70b63d7973cf57ed48c2fd9c2393b228d1db", base_url = "http://localhost:3001"):
+def få_status_newsletters(api_nyckeln="70b63d7973cf57ed48c2fd9c2393b228d1db",
+                          base_url = "http://localhost:3001"):
     '''
     Function för att få status från Newsletters.
 
@@ -136,6 +139,6 @@ if __name__ == "__main__":
     # Se resultat här nere
     print(få_status_newsletters())
     print(få_newsletters_kunder(limit=10))
-    print(få_preferrence(kundnummer=[1]))
+    #print(få_preferrence(kundnummer=[1])) # Fortfarande konstig för mig, ska fixa
     print(få_hubspot_kunder(kundidn=[51, 1]))
     print(få_hubspot_kunder(num_customers=10))
