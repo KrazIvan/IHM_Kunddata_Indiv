@@ -66,7 +66,7 @@ def få_newsletters_kunder(api_nyckeln="70b63d7973cf57ed48c2fd9c2393b228d1db",
     api_nyckeln (str, default: 70b63d7973cf57ed48c2fd9c2393b228d1db): API-nyckeln.
     base_url (str, default: http://localhost:3001): Bas-URL för newsletters.
     limit (int, default: 10): Det maximala antalet kunder att hämta.
-    efter (int, valfritt): ID för den senaste kunden som returnerades i föregående begäran, använd för sidnumrering.
+    efter (int, valfritt): ID för den senaste kunden som returnerades i föregående begäran, används för sidnumrering.
     kundidn (list, valfritt): Lista med ID:n för specifika kunder att hämta.
     förnamn (list, valfritt): Lista med förnamn på kunder att filtrera efter.
     efternamn (list, valfritt): Lista med efternamn på kunder att filtrera efter.
@@ -94,10 +94,47 @@ def få_newsletters_kunder(api_nyckeln="70b63d7973cf57ed48c2fd9c2393b228d1db",
         print(f"Request failed with status code {svar.status_code}")
         return []
 
+
+def få_preferrence(api_nyckeln="eecd57cc228732f3f92bb9719476e3d308db",
+                              base_url="http://localhost:3002",
+                              kundnummer=None,
+                              limit=10):
+    """
+    Hämtar kommunikationsvägar för kunder från preferrence API:t.
+
+    Parametrar:
+    api_nyckeln (str, default: eecd57cc228732f3f92bb9719476e3d308db): API-nyckeln.
+    base_url (str, default: http://localhost:3002): Bas-URL för Kunders kommunikationsväg.
+    kundnummer (list, valfritt): En lista av kundnumbers av kunder för att hänta kommunikationsvägar ifrån.
+    limit (int, valfritt): Det maximala antalet kunder att hämta kommunikationsvägar för, om inga kundnummer anges.
+
+    Returnerar:
+    En dict över kundnummer mappade till deras kommunikationsvägar.
+    """
+    url = f"{base_url}/customers/"
+    params = {"limit": limit}
+    if kundnummer:
+        params["customerNumbers"] = ",".join(kundnummer)
+    headers = {"x-api-key": api_nyckeln}
+    svar = requests.get(url, params=params, headers=headers)
+
+    if svar.status_code == 200:
+        # Request lyckades
+        data = svar.json()
+        kommunikationsvägar = {}
+        for kund in data:
+            kommunikationsvägar[kund["customerNumber"]] = kund["CommunicationMethod"]
+        return kommunikationsvägar
+    else:
+        # Request misslyckades
+        print(f"Request failed with status code {svar.status_code}")
+        return {}
+
 if __name__ == "__main__":
-    #print(få_status_newsletters())
+    print(få_status_newsletters())
     print(få_newsletters_kunder(limit=10))
-    #print(få_hubspot_kunder(kundidn=[51, 1]))
-    #print(få_hubspot_kunder(num_customers=10))
+    print(få_preferrence(kundnummer=[1]))
+    print(få_hubspot_kunder(kundidn=[51, 1]))
+    print(få_hubspot_kunder(num_customers=10))
 
 
