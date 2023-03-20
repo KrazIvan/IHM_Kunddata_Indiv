@@ -1,4 +1,4 @@
-USE IHM_individual;
+USE IHM_indiv;
 
 CREATE TABLE customers (
   CustomerNumber INT PRIMARY KEY,

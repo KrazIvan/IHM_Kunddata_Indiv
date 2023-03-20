@@ -1,4 +1,4 @@
-USE IHM_individual;
+USE IHM_indiv;
 
 -- Hur många kunder är från Stockholmsregionen?
 SELECT COUNT(*) AS CustomerCount

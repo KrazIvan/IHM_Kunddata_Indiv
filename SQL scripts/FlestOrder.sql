@@ -1,4 +1,4 @@
-USE IHM_individual;
+USE IHM_indiv;
 
 -- Visar kunder som har flest ordrar under de senaste året.
 SELECT customers.CustomerNumber, customers.FirstName, customers.LastName, COUNT(*) AS OrderCount
