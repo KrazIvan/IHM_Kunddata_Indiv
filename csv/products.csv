@@ -1,0 +1,31 @@
+ProductId,ProductName,ProductPrice,ProductCategory,PriceClass
+1,Pain reliever,19,Pharmacy,private_label
+2,Pain reliever,39,Pharmacy,brands
+3,Fever reducer,14,Pharmacy,private_label
+4,Fever reducer,28,Pharmacy,brands
+5,Vitamin D3,10,Pharmacy,private_label
+6,Vitamin D3,30,Pharmacy,brands
+7,Vitamin C,12,Pharmacy,private_label
+8,Vitamin C,29,Pharmacy,brands
+9,First aid,139,Pharmacy,private_label
+10,First aid,239,Pharmacy,brands
+11,Skincare,49,Pharmacy,private_label
+12,Skincare,299,Pharmacy,brands
+13,bottled water,14,Pharmacy,private_label
+14,bottled water,27,Pharmacy,brands
+15,milk,17,Groceries,private_label
+16,milk,19,Groceries,brands
+17,butter,43,Groceries,private_label
+18,butter,57,Groceries,brands
+19,bread,19,Groceries,private_label
+20,bread,39,Groceries,brands
+21,bottled water,10,Groceries,private_label
+22,bottled water,30,Groceries,brands
+23,LED55,3999,Electronics,private_label
+24,LED55,5999,Electronics,brands
+25,OLED75,6999,Electronics,private_label
+26,OLED75,14999,Electronics,brands
+27,RADIO,399,Electronics,private_label
+28,RADIO,799,Electronics,brands
+29,PHONE,1999,Electronics,private_label
+30,PHONE,6999,Electronics,brands
