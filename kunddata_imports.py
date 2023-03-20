@@ -137,8 +137,8 @@ def få_preferrence(api_nyckeln="eecd57cc228732f3f92bb9719476e3d308db",
 
 if __name__ == "__main__":
     # Se resultat här nere
-    #print(få_status_newsletters())
-    #print(få_newsletters_kunder(limit=10))
-    print(få_preferrence(kundnummer=[1])) # Fortfarande konstig för mig, ska fixa
-    #print(få_hubspot_kunder(kundidn=[51, 1]))
-    #print(få_hubspot_kunder(num_customers=10))
+    print(få_status_newsletters())
+    print(få_newsletters_kunder(limit=5))
+    #print(få_preferrence(kundnummer=[1])) # Fortfarande konstig för mig, ska fixa
+    print(få_hubspot_kunder(kundidn=[51, 1]))
+    print(få_hubspot_kunder(antal_kunder=10))
