@@ -73,6 +73,7 @@ def få_newsletters_kunder(api_nyckeln="70b63d7973cf57ed48c2fd9c2393b228d1db",
 
     Returnerar:
     En lista över newsletterskunder.
+
     """
     url = f"{base_url}/newsletters"
     params = {"limit": limit, "after": after}
@@ -110,6 +111,7 @@ def få_preferrence(api_nyckeln="eecd57cc228732f3f92bb9719476e3d308db",
 
     Returnerar:
     En dict över kundnummer mappade till deras kommunikationsvägar.
+    
     """
     url = f"{base_url}/customers/"
     params = {"limit": limit}
@@ -131,10 +133,9 @@ def få_preferrence(api_nyckeln="eecd57cc228732f3f92bb9719476e3d308db",
         return {}
 
 if __name__ == "__main__":
+    # Se resultat här nere
     print(få_status_newsletters())
     print(få_newsletters_kunder(limit=10))
     print(få_preferrence(kundnummer=[1]))
     print(få_hubspot_kunder(kundidn=[51, 1]))
     print(få_hubspot_kunder(num_customers=10))
-
-
