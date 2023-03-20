@@ -119,7 +119,7 @@ def få_preferrence(api_nyckeln="eecd57cc228732f3f92bb9719476e3d308db",
     url = f"{base_url}/customers/"
     params = {"limit": limit}
     if kundnummer:
-        params["customerNumbers"] = ",".join(kundnummer)
+        params["customerNumbers"] = ",".join(str(kundnummer))
     headers = {"x-api-key": api_nyckeln}
     svar = requests.get(url, params=params, headers=headers)
 
@@ -137,8 +137,8 @@ def få_preferrence(api_nyckeln="eecd57cc228732f3f92bb9719476e3d308db",
 
 if __name__ == "__main__":
     # Se resultat här nere
-    print(få_status_newsletters())
-    print(få_newsletters_kunder(limit=10))
-    #print(få_preferrence(kundnummer=[1])) # Fortfarande konstig för mig, ska fixa
-    print(få_hubspot_kunder(kundidn=[51, 1]))
-    print(få_hubspot_kunder(num_customers=10))
+    #print(få_status_newsletters())
+    #print(få_newsletters_kunder(limit=10))
+    print(få_preferrence(kundnummer=[1])) # Fortfarande konstig för mig, ska fixa
+    #print(få_hubspot_kunder(kundidn=[51, 1]))
+    #print(få_hubspot_kunder(num_customers=10))
