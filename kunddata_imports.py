@@ -3,6 +3,17 @@ import requests
 def få_hubspot_kunder(kundidn=None,
                       antal_kunder=10,
                       hubspot_api_key="pat-na1-003cd583-9877-4c70-97ba-4c8cb7b980e0"):
+    '''
+    Function för att få kunder från Hubspot contacts API:t.
+
+    Parametrar:
+    hubspot_api_key (str, default: pat-na1-003cd583-9877-4c70-97ba-4c8cb7b980e0): API-nyckeln.
+    antal_kunder (int, default: 10): Antalet kunder att hämta.
+    kundidn (list, default: None): Lista av kund-ID:n att hämta.
+
+    Output: Lista med Hubspot kunderna.
+    
+    '''
     headers = {"Authorization": "Bearer " + hubspot_api_key}
     params = {"limit": antal_kunder}
     # För specifika kunder
