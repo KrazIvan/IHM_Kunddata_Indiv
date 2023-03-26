@@ -1,5 +1,46 @@
 import requests
 
+def få_hubspot_deals(dealidn=None,
+                      antal_deals=10,
+                      hubspot_api_key="pat-na1-003cd583-9877-4c70-97ba-4c8cb7b980e0"):
+    '''
+    Function för att få deals från Hubspot deals API:t.
+
+    Parametrar:
+    hubspot_api_key (str, default: pat-na1-003cd583-9877-4c70-97ba-4c8cb7b980e0): API-nyckeln.
+    antal_deals (int, default: 10): Antalet deals att hämta.
+    kundidn (list, default: None): Lista av deal-ID:n att hämta.
+
+    Output: Lista med Hubspot-deals.
+    
+    '''
+    headers = {"Authorization": "Bearer " + hubspot_api_key}
+    params = {"limit": antal_deals}
+    # För specifika deals
+    if dealidn != None:
+        deallista = []
+        for dealid in dealidn:
+            svar = requests.get(f"https://api.hubapi.com/crm/v3/objects/deals/{dealid}", headers=headers)
+            # Request lyckades
+            if svar.status_code == 200:
+                deal = svar.json()
+                deallista.append(deal)
+            # Request misslyckades   
+            else:
+                print(f"Request misslyckades: {svar.status_code}")
+        return deallista
+    # Om inga specifika deals blev efterfrågade
+    else:
+        svar = requests.get("https://api.hubapi.com/crm/v3/objects/deals", headers=headers, params=params)
+        # Request lyckades
+        if svar.status_code == 200:
+            deallista = svar.json()["results"]
+            return deallista
+        # Request misslyckades 
+        else:
+            print(f"Request misslyckades: {svar.status_code}")
+            return []
+
 def få_hubspot_kunder(kundidn=None,
                       antal_kunder=10,
                       hubspot_api_key="pat-na1-003cd583-9877-4c70-97ba-4c8cb7b980e0"):
@@ -11,7 +52,7 @@ def få_hubspot_kunder(kundidn=None,
     antal_kunder (int, default: 10): Antalet kunder att hämta.
     kundidn (list, default: None): Lista av kund-ID:n att hämta.
 
-    Output: Lista med Hubspot kunderna.
+    Output: Lista med Hubspot-kunderna.
     
     '''
     headers = {"Authorization": "Bearer " + hubspot_api_key}
@@ -153,3 +194,5 @@ if __name__ == "__main__":
     #print(få_preferrence(kundnummer=[1])) # Fortfarande konstig för mig, ska fixa
     print(få_hubspot_kunder(kundidn=[51, 1]))
     print(få_hubspot_kunder(antal_kunder=10))
+    print(få_hubspot_deals(dealidn=[9801031437, 9801031438]))
+    print(få_hubspot_deals(antal_deals=2))
