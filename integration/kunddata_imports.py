@@ -189,7 +189,7 @@ def få_newsletters_kunder(api_nyckeln="70b63d7973cf57ed48c2fd9c2393b228d1db",
         return kundlista
     else:
         # Request misslyckades
-        print(f"Request failed with status code {svar.status_code}")
+        print(f"Request misslyckades: {svar.status_code}")
         return []
 
 
@@ -202,7 +202,7 @@ def få_payments(order_numbers, wsdl="http://localhost:3080/ws/bs.wsdl"):
         try:
             payment = client.service.getPayment(order_number)
         except zeep.exceptions.Fault:
-            print(f"Payments Request nummer {order_number} misslyckades.")
+            print(f"Payments Request \"{order_number}\" misslyckades.")
             continue
         if payment != None:
             payment_info = {
@@ -224,7 +224,7 @@ def få_credits_kunder(customer_numbers, wsdl="http://localhost:3080/ws/bs.wsdl"
         try:
             credit = client.service.getCredit(customer_number)
         except zeep.exceptions.Fault:
-            print(f"Credits Request nummer {customer_number} misslyckades.")
+            print(f"Credits Request \"{customer_number}\" misslyckades.")
             continue
         if credit != None:
             credit_info = {
