@@ -1,6 +1,5 @@
 from kunddata_imports import få_hubspot_deals, få_hubspot_companies, få_hubspot_kunder, få_newsletters_kunder, få_payments, få_credits_kunder
 import mariadb
-from datetime import datetime
 import sys
 
 # Hubspot -----------------------------------------------------------
