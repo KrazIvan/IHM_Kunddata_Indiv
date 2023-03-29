@@ -223,5 +223,5 @@ if __name__ == "__main__":
     import_hubspot_companies(få_hubspot_companies())
     import_hubspot_kunder(få_hubspot_kunder())
     import_newsletters_data(få_newsletters_kunder())
-    import_credits(få_credits_kunder(customer_numbers=["10001", "10002", "10003", "10004", "330495", "10005", "330496", "10006", "123456", "10007","330497", "10008", "330498", "999999"]))
-    import_payments((få_payments(order_numbers=["330495", "330496", "123456", "330497", "330498", "999999"])))
+    import_credits(få_credits_kunder(customer_numbers=["10001", "10002", "10003", "10004", "330495", "10005", "330496", "10006", "420", "666", "123456", "10007","330497", "10008", "330498", "999999"]))
+    import_payments((få_payments(order_numbers=["330495", "330496", "123456", "330497", "330498", "999999", "420", "666"])))
