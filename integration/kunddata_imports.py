@@ -202,8 +202,8 @@ def få_payments(order_numbers, wsdl="http://localhost:3080/ws/bs.wsdl"):
         try:
             payment = client.service.getPayment(order_number)
         except zeep.exceptions.Fault:
-            print(f"Request misslyckades.")
-            break
+            print(f"Payments Request nummer {order_number} misslyckades.")
+            continue
         if payment != None:
             payment_info = {
                 "orderNumber": payment["orderNumber"],
@@ -224,8 +224,8 @@ def få_credits_kunder(customer_numbers, wsdl="http://localhost:3080/ws/bs.wsdl"
         try:
             credit = client.service.getCredit(customer_number)
         except zeep.exceptions.Fault:
-            print(f"Request misslyckades.")
-            break
+            print(f"Credits Request nummer {customer_number} misslyckades.")
+            continue
         if credit != None:
             credit_info = {
                 "customerNumber": credit["customerNumber"],
@@ -238,15 +238,17 @@ def få_credits_kunder(customer_numbers, wsdl="http://localhost:3080/ws/bs.wsdl"
 
 if __name__ == "__main__":
     # Se resultat här nere
-    #print(få_status_newsletters())
-    #print(få_newsletters_kunder(limit=5))
-    #print(få_hubspot_kunder(kundidn=[51, 1]))
-    #print(få_hubspot_kunder(antal_kunder=10))
-    #print(få_hubspot_deals(dealidn=[9801031437, 9801031438]))
-    #print(få_hubspot_deals(antal_deals=2))
-    #print(få_hubspot_companies(companyidn=[9366363952, 9366363956]))
-    #print(få_hubspot_companies(antal_companies=2))
+    print(få_status_newsletters())
+    print(få_newsletters_kunder(limit=5))
+    print(få_hubspot_kunder(kundidn=[51, 1]))
+    print(få_hubspot_kunder(antal_kunder=10))
+    print(få_hubspot_deals(dealidn=[9801031437, 9801031438]))
+    print(få_hubspot_deals(antal_deals=2))
+    print(få_hubspot_companies(companyidn=[9366363952, 9366363956]))
+    print(få_hubspot_companies(antal_companies=2))
     print(få_payments(order_numbers=["330495", "330496", "123456", "330497", "330498", "999999"]))
-    #print(få_credits_kunder(customer_numbers=["10001", "10002", "10003", "10004", "330495", "330496", "123456", "330497", "330498", "999999"]))
-    #print(få_newsletters_kunder())
-    #print(få_hubspot_kunder())
+    print(få_credits_kunder(customer_numbers=["10001", "10002", "10003", "10004", "330495", "330496", "123456", "330497", "330498", "999999"]))
+    print(få_newsletters_kunder())
+    print(få_hubspot_kunder())
+    print(få_hubspot_companies())
+    print(få_hubspot_deals())
