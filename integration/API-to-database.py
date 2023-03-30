@@ -1,4 +1,5 @@
 from kunddata_imports import få_hubspot_deals, få_hubspot_companies, få_hubspot_kunder, få_newsletters_kunder, få_payments, få_credits_kunder
+from databaseinfo import username, password
 import mariadb
 import sys
 
@@ -7,8 +8,8 @@ import sys
 def import_hubspot_deals(hubspot_deals):
     try:
         conn = mariadb.connect(
-        user="root",
-        password="i",
+        user=username,
+        password=password,
         host="localhost",
         database="hubspot_deals")
     except mariadb.Error as fel:
@@ -45,8 +46,8 @@ def import_hubspot_deals(hubspot_deals):
 def import_hubspot_companies(hubspot_companies):
     try:
         conn = mariadb.connect(
-        user="root",
-        password="i",
+        user=username,
+        password=password,
         host="localhost",
         database="hubspot_companies")
     except mariadb.Error as fel:
@@ -72,8 +73,8 @@ def import_hubspot_companies(hubspot_companies):
 def import_hubspot_kunder(hubspot_contacts):
     try:
         conn = mariadb.connect(
-        user="root",
-        password="i",
+        user=username,
+        password=password,
         host="localhost",
         database="hubspot_contacts")
     except mariadb.Error as fel:
@@ -103,8 +104,8 @@ def import_hubspot_kunder(hubspot_contacts):
 def import_newsletters_data(newsletters_data):
     try:
         conn = mariadb.connect(
-        user="root",
-        password="i",
+        user=username,
+        password=password,
         host="localhost",
         database="newsletters_data")
 
@@ -152,8 +153,8 @@ def import_newsletters_data(newsletters_data):
 def import_credits(credits_data):
     try:
         conn = mariadb.connect(
-            user="root",
-            password="i",
+            user=username,
+            password=password,
             host="localhost",
             database="credits_data")
 
@@ -185,8 +186,8 @@ def import_credits(credits_data):
 def import_payments(payments_data):
     try:
         conn = mariadb.connect(
-            user="root",
-            password="i",
+            user=username,
+            password=password,
             host="localhost",
             database="payments_data")
 
