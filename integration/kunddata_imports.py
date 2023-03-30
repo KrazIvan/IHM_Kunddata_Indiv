@@ -1,6 +1,6 @@
 import requests
 import zeep
-from APIKeys import hubspot_api_key, newsletters_api_key
+from apikeys import hubspot_api_key, newsletters_api_key
 
 def få_hubspot_companies(companyidn=None,
                       antal_companies=10,
