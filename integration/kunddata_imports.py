@@ -1,9 +1,10 @@
 import requests
 import zeep
+from APIKeys import hubspot_api_key, newsletters_api_key
 
 def få_hubspot_companies(companyidn=None,
                       antal_companies=10,
-                      hubspot_api_key="pat-na1-003cd583-9877-4c70-97ba-4c8cb7b980e0"):
+                      hubspot_api_key=hubspot_api_key):
     '''
     Function för att få företag från Hubspot companies API:t.
 
@@ -44,7 +45,7 @@ def få_hubspot_companies(companyidn=None,
 
 def få_hubspot_deals(dealidn=None,
                       antal_deals=10,
-                      hubspot_api_key="pat-na1-003cd583-9877-4c70-97ba-4c8cb7b980e0"):
+                      hubspot_api_key=hubspot_api_key):
     '''
     Function för att få deals från Hubspot deals API:t.
 
@@ -85,7 +86,7 @@ def få_hubspot_deals(dealidn=None,
 
 def få_hubspot_kunder(kundidn=None,
                       antal_kunder=10,
-                      hubspot_api_key="pat-na1-003cd583-9877-4c70-97ba-4c8cb7b980e0"):
+                      hubspot_api_key=hubspot_api_key):
     '''
     Function för att få kunder från Hubspot contacts API:t.
 
@@ -125,7 +126,7 @@ def få_hubspot_kunder(kundidn=None,
             return []
 
 
-def få_status_newsletters(api_nyckeln="70b63d7973cf57ed48c2fd9c2393b228d1db",
+def få_status_newsletters(api_nyckeln=newsletters_api_key,
                           base_url = "http://localhost:3001"):
     '''
     Function för att få status från Newsletters.
@@ -148,7 +149,7 @@ def få_status_newsletters(api_nyckeln="70b63d7973cf57ed48c2fd9c2393b228d1db",
         return []
 
 
-def få_newsletters_kunder(api_nyckeln="70b63d7973cf57ed48c2fd9c2393b228d1db",
+def få_newsletters_kunder(api_nyckeln=newsletters_api_key,
                           base_url="http://localhost:3001", 
                           limit=10,
                           after=None,
