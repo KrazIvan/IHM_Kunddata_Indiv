@@ -9,7 +9,7 @@ def få_hubspot_companies(companyidn=None,
     Function för att få företag från Hubspot companies API:t.
 
     Parametrar:
-    hubspot_api_key (str, default: pat-na1-003cd583-9877-4c70-97ba-4c8cb7b980e0): API-nyckeln.
+    hubspot_api_key (str, default: hubspot_api_key från apikeys.py): API-nyckeln.
     antal_companies (int, default: 10): Antalet företag att hämta.
     kundidn (list, default: None): Lista av company-ID:n att hämta.
 
@@ -50,7 +50,7 @@ def få_hubspot_deals(dealidn=None,
     Function för att få deals från Hubspot deals API:t.
 
     Parametrar:
-    hubspot_api_key (str, default: pat-na1-003cd583-9877-4c70-97ba-4c8cb7b980e0): API-nyckeln.
+    hubspot_api_key (str, default: hubspot_api_key från apikeys.py): API-nyckeln.
     antal_deals (int, default: 10): Antalet deals att hämta.
     kundidn (list, default: None): Lista av deal-ID:n att hämta.
 
@@ -91,7 +91,7 @@ def få_hubspot_kunder(kundidn=None,
     Function för att få kunder från Hubspot contacts API:t.
 
     Parametrar:
-    hubspot_api_key (str, default: pat-na1-003cd583-9877-4c70-97ba-4c8cb7b980e0): API-nyckeln.
+    hubspot_api_key (str, default: hubspot_api_key från apikeys.py): API-nyckeln.
     antal_kunder (int, default: 10): Antalet kunder att hämta.
     kundidn (list, default: None): Lista av kund-ID:n att hämta.
 
@@ -161,7 +161,7 @@ def få_newsletters_kunder(api_nyckeln=newsletters_api_key,
     Hämtar kunder från newsletters.
 
     Parametrar:
-    api_nyckeln (str, default: 70b63d7973cf57ed48c2fd9c2393b228d1db): API-nyckeln.
+    api_nyckeln (str, default: newsletters_api_key från apikeys.py): API-nyckeln.
     base_url (str, default: http://localhost:3001): Bas-URL för newsletters.
     limit (int, default: 10): Det maximala antalet kunder att hämta.
     efter (int, valfritt): ID för den senaste kunden som returnerades i föregående begäran, används för sidnumrering.
